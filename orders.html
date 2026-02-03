@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Зелена Книжарница – Поръчки</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <a href="index.html#top" class="logo-wrap">
+          <div class="logo-mark"><span>📗</span></div>
+          <div>
+            <div class="logo-text-title">Зелена Книжарница</div>
+            <div class="logo-text-sub">онлайн книги &amp; класика</div>
+          </div>
+        </a>
+        <nav class="nav">
+          <a href="index.html#top">Начало</a>
+          <a href="catalog.html">Каталог</a>
+          <a href="orders.html">Поръчки</a>
+          <a href="index.html#contacts" class="nav-cta">Контакти</a>
+        </nav>
+      </header>
+
+      <section class="order-wrapper">
+        <h2>Поръчай книга</h2>
+        <p>
+          Попълни формата по-долу, избери заглавие от каталога и ние ще ти пишем
+          с потвърждение и точна цена за доставка.
+        </p>
+
+        <form class="order-form" id="orderForm">
+          <div class="form-row">
+            <div>
+              <label for="customerName">Име и фамилия</label>
+              <input
+                type="text"
+                id="customerName"
+                name="customerName"
+                required
+              />
+            </div>
+            <div>
+              <label for="customerEmail">E-mail</label>
+              <input
+                type="email"
+                id="customerEmail"
+                name="customerEmail"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="customerPhone">Телефон</label>
+              <input
+                type="tel"
+                id="customerPhone"
+                name="customerPhone"
+                placeholder="+359..."
+                required
+              />
+            </div>
+            <div>
+              <label for="city">Град</label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                placeholder="напр. София"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="book">Избери книга</label>
+              <select id="book" name="book" required>
+                <option value="">-- Избери заглавие --</option>
+                <option>„Под игото“ – Иван Вазов</option>
+                <option>„От сърцето“ – Джеймс Алън</option>
+                <option>„Гордост и предразсъдъци“ – Джейн Остин</option>
+                <option>„Студен гранит“ – Стюарт Макбрайд</option>
+                <option>„Престъпление и наказание“ – Ф. М. Достоевски</option>
+                <option>„Вдовицата“ – Джон Гришам</option>
+                <option>„Морал“ – Тадеуш Доленга-Мостович</option>
+                <option>„Книга за Балтиморови“ – Жоел Дикер</option>
+                <option>„Наемателката“ – Фрида Макфадън</option>
+                <option>„Архипелагът на забравените“ – Никола Бьогле</option>
+                <option>„Високо в небето“ – Кери Грийнууд</option>
+                <option>„Убийство във влака за Баларат“ – Кери Грийнууд</option>
+                <option>„Алиби“ – Агата Кристи</option>
+                <option>„Кръстникът“ – Марио Пузо</option>
+                <option>„Четвъртият“ – Юнас Мустрьом</option>
+                <option>„Мозайка от убийства“ – Антъни Хоровиц</option>
+                <option>„Кокаинов блус“ – Кери Грийнууд</option>
+              </select>
+            </div>
+            <div>
+              <label for="quantity">Количество</label>
+              <input
+                type="number"
+                id="quantity"
+                name="quantity"
+                min="1"
+                value="1"
+                required
+              />
+            </div>
+          </div>
+
+          <label for="address">Адрес за доставка</label>
+          <textarea
+            id="address"
+            name="address"
+            placeholder="Улица, номер, вход, етаж..."
+          ></textarea>
+
+          <label for="notes">Бележки към поръчката</label>
+          <textarea
+            id="notes"
+            name="notes"
+            placeholder="Предпочитано време, допълнителна информация..."
+          ></textarea>
+
+          <p class="order-note">
+            * След изпращане на поръчката ще получиш e-mail или обаждане за
+            потвърждение и финална сума с доставка.
+          </p>
+
+          <button type="submit" class="btn-small">Изпрати поръчка</button>
+        </form>
+      </section>
+    </div>
+
+    <script>
+      document
+        .getElementById("orderForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const book =
+            document.getElementById("book").value || "без избрано заглавие";
+          alert(
+            "Благодарим за поръчката! Избра: " +
+              book +
+              ". Ще се свържем с теб по e-mail."
+          );
+          this.reset();
+        });
+    </script>
+  </body>
+</html>
